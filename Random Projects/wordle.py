@@ -1,7 +1,7 @@
 import random
 split = "--------------------------"
 
-4_letters = ["spin",
+four_letters = ["spin",
 "push",
 "side",
 "stop",
@@ -25,8 +25,15 @@ split = "--------------------------"
 "poem",
 "full",
 "meat",
-]
+"long",
+"crop",
+"mask",
+"open",
+"file",]
 
+
+
+final_fours = list(dict.fromkeys(four_letters))
 
 
 print("Welcome to Wordle MK2 by Sean!")
@@ -36,5 +43,7 @@ print("1 | 4 Letters.")
 print("2 | 5 Letters.")
 print("3 | 6 Letters.\n")
 print(split)
-choice = input()
+choice = int(input())
+
+if choice = 1
 
