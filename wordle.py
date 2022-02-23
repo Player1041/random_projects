@@ -133,4 +133,4 @@ while play == True:
       play = False
 print("Ok then. Bye!")
 print("--- END OF FILE ---")
-time.sleep(5)
+time.sleep(5.0)
