@@ -37,69 +37,68 @@ while play == True:
 	    print("3 | 6 Letters.")
 	    print("4 | Custom Word.\n")
 	    print(split)
-    try:
-    	choice = int(input())
-    except ValueError:
-    	print("Numbers only!\n")
-    	continued = True
-    	continue
-    if choice == 1:
-    	word = random.choice(four)
-    	total = 4
-    elif choice == 2:
-    	word = random.choice(five)
-    	total = 5
-    elif choice == 3:
-    	word = random.choice(six)
-    	total = 6
-    elif choice == 4:
-    	total = int(input("How long is the word? "))
-    	word = input(f"Please enter a word of {total} letters. (Make sure to hide the screen if you're choosing the word for someone) ")
-    	print("\n" * 20)
-    else:
-    	print("That's not an option.")
-    	print(split)
-    	continued = True
-    	continue
-    
-    print(word)
-    guesses = 0
-    while guesses < 5:
-    	display = ""
-    	used = []
-    	guess = input(f"Please guess the word: ")
-    	if len(guess) != total or guess.isspace() or guess.isnumeric():
-    		print(f"Sorry, that's not a {total} letter word. Try again.")
-    		continue
-    	for index, letter in enumerate(guess):
-    			if letter in used and word.count(letter) == 1:
-    				display += f"{fore_white}{back_black}{letter}{reset}"
-    			elif letter == word[index]:
-        			display += f"{fore_black}{back_green}{letter}{reset}"
-        			used.append(letter)
-    			elif letter in word and letter != word[index]:
-        			display += f"{fore_black}{back_yellow}{letter}{reset}"
-        			used.append(letter)
-    			else:
-        			display += f"{fore_white}{back_black}{letter}{reset}"
-    	guesses = guesses + 1
-    	print(display)
-    	if guess == word:
-    		break
+	try:
+		choice = int(input())
+	except ValueError:
+		print("Numbers only!\n")
+		continued = True
+		continue
+	if choice == 1:
+		word = random.choice(four)
+		total = 4
+	elif choice == 2:
+		word = random.choice(five)
+		total = 5
+	elif choice == 3:
+		word = random.choice(six)
+		total = 6
+	elif choice == 4:
+		total = int(input("How long is the word? "))
+		word = input(f"Please enter a word of {total} letters. (Make sure to hide the screen if you're choosing the word for someone) ")
+		print("\n" * 20)
+	else:
+		print("That's not an option.")
+		print(split)
+		continued = True
+		continue
+	print(word)
+	guesses = 0
+	while guesses < 5:
+		display = ""
+		used = []
+		guess = input(f"Please guess the word: ")
+		if len(guess) != total or guess.isspace() or guess.isnumeric():
+			print(f"Sorry, that's not a {total} letter word. Try again.")
+			continue
+		for index, letter in enumerate(guess):
+				if letter in used and word.count(letter) == 1:
+					display += f"{fore_white}{back_black}{letter}{reset}"
+				elif letter == word[index]:
+					display += f"{fore_black}{back_green}{letter}{reset}"
+					used.append(letter)
+				elif letter in word and letter != word[index]:
+					display += f"{fore_black}{back_yellow}{letter}{reset}"
+					used.append(letter)
+				else:
+					display += f"{fore_white}{back_black}{letter}{reset}"
+		guesses = guesses + 1
+		print(display)
+		if guess == word:
+			break
 
-    print(split)
-    if guess == word:
-      print(f"Congrats! The word was {word}. It took you {guesses} of 5 guesses to get right.")
-    elif guess != word:
-      print(f"Sorry, you didn't get the word. The word was {word}.")
-    print("Do you wish to play again?")
-    print("1 | Yes \n2 | No")
-    play = int(input())
-    if play == 1:
-      play = True
-      print(f"\nRestarting script...\n{split}\n\n\n\n")
-    elif play == 2:
-      play = False
+	print(split)
+	if guess == word:
+		print(f"Congrats! The word was {word}. It took you {guesses} of 5 guesses to get right.")
+	elif guess != word:
+		print(f"Sorry, you didn't get the word. The word was {word}.")
+	print("Do you wish to play again?")
+	print("1 | Yes \n2 | No")
+	play = int(input())
+	if play == 1:
+		play = True
+		print(f"\nRestarting script...\n{split}\n\n\n\n")
+	elif play == 2:
+		play = False
 print("Ok then. Bye!")
 print("--- END OF FILE ---")
 time.sleep(5.0)
