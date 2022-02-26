@@ -1,5 +1,7 @@
+import os
 import random
 import time
+os.system("")
 
 split = "--------------------------"
 
