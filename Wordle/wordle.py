@@ -61,7 +61,7 @@ while play == True:
 		print(split)
 		continued = True
 		continue
-	print(word)
+
 	guesses = 0
 	while guesses < 5:
 		display = ""
