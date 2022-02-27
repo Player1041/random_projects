@@ -1,19 +1,19 @@
-import os
+import sys
 import random
 import time
-os.system("")
+import sys
+
+try:
+    colour = sys.stdout.shell
+except AttributeError:
+    raise RuntimeError("Use IDLE")
 
 split = "--------------------------"
 
-fore_white = "\u001b[37;1m"
-fore_black = "\u001b[30m"
+black = "SYNC"
+green = "STRING"
+orange = "KEYWORD"
 
-back_black =  "\u001b[40m"
-back_yellow = "\u001b[43m"
-back_green = "\u001b[42m"
-back_white =  "\u001b[47m"
-
-reset = "\u001b[0m"
 
 four = ['wash', 'mark', 'stun', 'flee', 'dink', 'exam', 'mind', 'pals', 'bake', 'kill', 'beef', 'baba', 'oath', 'pees', 'void', 'suds', 'dung', 'rows', 'node', 'baba', 'bark', 'feet', 'gain', 'lump', 'hide', 'bowl', 'sump', 'neck', 'oven', 'soot', 'mask', 'cows', 'toga', 'temp', 'glad', 'pled', 'sofa', 'lobe', 'grim', 'felt', 'zone', 'tosh', 'male', 'gall', 'dock', 'pose', 'prom', 'fort', 'conk', 'thug', 'were', 'west', 'gage', 'pick', 'calm', 'deer', 'turn', 'mugs', 'duly', 'cuts', 'casa', 'flow', 'duty', 'near', 'soul', 'bulk', 'pops', 'aide', 'fans', 'chug', 'liar', 'crow', 'deaf', 'bite', 'clop', 'lame', 'dump', 'loon', 'fame', 'hugs', 'gout', 'moll', 'body', 'rats', 'vine', 'dewy', 'down', 'drab', 'very', 'clad', 'duty', 'brit', 'mind', 'skin', 'pods', 'boot', 'stag', 'farm', 'wrap', 'font']
 
@@ -58,6 +58,8 @@ while play == True:
 		total = int(input("How long is the word? "))
 		word = input(f"Please enter a word of {total} letters. (Make sure to hide the screen if you're choosing the word for someone) ")
 		print("\n" * 20)
+		print("\n" * 20)
+		print("\n" * 10)
 	else:
 		print("That's not an option.")
 		print(split)
@@ -74,17 +76,17 @@ while play == True:
 			continue
 		for index, letter in enumerate(guess):
 				if letter in used and word.count(letter) == 1:
-					display += f"{fore_white}{back_black}{letter}{reset}"
+					display = colour.write(letter, black)
 				elif letter == word[index]:
-					display += f"{fore_black}{back_green}{letter}{reset}"
+					display = colour.write(letter, green)
 					used.append(letter)
 				elif letter in word and letter != word[index]:
-					display += f"{fore_black}{back_yellow}{letter}{reset}"
+					display = colour.write(letter, orange)
 					used.append(letter)
 				else:
-					display += f"{fore_white}{back_black}{letter}{reset}"
+					display = colour.write(letter, black)
 		guesses = guesses + 1
-		print(display)
+		print()
 		if guess == word:
 			break
 
