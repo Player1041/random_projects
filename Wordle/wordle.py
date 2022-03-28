@@ -57,7 +57,7 @@ while play == True:
 	elif choice == 4:
 		total = int(input("How long is the word? "))
 		word = input(f"Please enter a word of {total} letters. (Make sure to hide the screen if you're choosing the word for someone) ")
-		print("\n" * 20)
+		print("\n" * 100)
 	else:
 		print("That's not an option.")
 		print(split)
