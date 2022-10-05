@@ -30,15 +30,15 @@ used = []
 play = True
 while play == True:
 	if not continued:
-	    print(split)
-	    print("Welcome to Wordle MK2 by Sean!")
-	    print(split)
-	    print("Please select your word length using the numbers on the left:\n")
-	    print("1 | 4 Letters.")
-	    print("2 | 5 Letters.")
-	    print("3 | 6 Letters.")
-	    print("4 | Custom Word.\n")
-	    print(split)
+		print(split)
+		print("Welcome to Wordle MK2 by Sean!")
+		print(split)
+		print("Please select your word length using the numbers on the left:\n")
+		print("1 | 4 Letters.")
+		print("2 | 5 Letters.")
+		print("3 | 6 Letters.")
+		print("4 | Custom Word.\n")
+		print(split)
 	try:
 		choice = int(input())
 	except ValueError:
